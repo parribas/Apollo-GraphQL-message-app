@@ -50,13 +50,13 @@ class Messages extends Component
 	}
   render() 
   {
-  	var {loading, error, messages} = this.props.data
+  	var {loading, error, allMessages} = this.props.data
   	l(this.props.data)
     return (
     	<div>
     		{loading && <ListItem> <CircularProgress /> </ListItem>}
     		{error && <ListItem primaryText='Error' secondaryText={error.message} />}
-    		{messages && messages.map( ({text, id, user}) => <ListItem key = {id} primaryText={text} secondaryText={user ? user.name : 'Server'} />)}
+    		{allMessages && allMessages.map( ({text, id, user}) => <ListItem key = {id} primaryText={text} secondaryText={user ? user.name : 'Server'} />)}
     		<div style={{ float:"left", clear: "both" }} ref = {ref => this.end = ref} /> 					
     	</div>
     	)
@@ -66,7 +66,7 @@ class Messages extends Component
 
 const messagesListQuery = gql`
    query MessagesQuery {
-     messages {
+     allMessages {
        id
        text
        user{

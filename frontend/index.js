@@ -11,7 +11,7 @@ import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-client-preset'
 
 const {origin, port} = window.location
 const client = new ApolloClient({
-	link: new HttpLink({uri: 'http://localhost:9090'+'/graphql'}),
+	link: new HttpLink({uri: 'http://127.0.0.1:5000'+'/api/v1/graphql'}),
   	cache: new InMemoryCache(),
 })
 

@@ -54,7 +54,7 @@ class MessageSender extends Component {
 
 const messagesListQuery = gql`
    query MessagesQuery {
-     messages {
+     allMessages {
        id
        text
        user{
